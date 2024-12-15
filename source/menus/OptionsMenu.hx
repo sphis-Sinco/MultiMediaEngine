@@ -2,7 +2,6 @@ package menus;
 
 import openfl.Lib;
 import menus.Options;
-import Controls.Control;
 import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;

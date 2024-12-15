@@ -1,6 +1,5 @@
 package menus;
 
-import Controls.KeyboardScheme;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -13,10 +12,6 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import io.newgrounds.NG;
 import lime.app.Application;
-
-#if windows
-import Discord.DiscordClient;
-#end
 
 using StringTools;
 

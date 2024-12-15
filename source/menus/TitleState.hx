@@ -24,10 +24,6 @@ import io.newgrounds.NG;
 import lime.app.Application;
 import openfl.Assets;
 
-#if windows
-import Discord.DiscordClient;
-#end
-
 #if desktop
 import sys.thread.Thread;
 #end
@@ -83,7 +79,7 @@ class TitleState extends MusicBeatState
 
 		FlxG.save.bind('multimediaEngine', 'manTeam');
 
-		KadeEngineData.initSave();
+		Save.initSave();
 
 		Highscore.load();
 
