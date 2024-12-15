@@ -117,8 +117,7 @@ class ChartingState extends MusicBeatState
 
 		if (PlayState.SONG != null)
 			_song = PlayState.SONG;
-		else
-		{
+		else {
 			_song = {
 				song: 'Test',
 				notes: [],
@@ -132,7 +131,6 @@ class ChartingState extends MusicBeatState
 		}
 
 		FlxG.mouse.visible = true;
-		FlxG.save.bind('funkin', 'ninjamuffin99');
 
 		tempBpm = _song.bpm;
 
@@ -644,9 +642,6 @@ class ChartingState extends MusicBeatState
 
 		if (curBeat % 4 == 0 && curStep >= 16 * (curSection + 1))
 		{
-			trace(curStep);
-			trace((_song.notes[curSection].lengthInSteps) * (curSection + 1));
-			trace('DUMBSHIT');
 
 			if (_song.notes[curSection + 1] == null)
 			{
@@ -926,7 +921,6 @@ class ChartingState extends MusicBeatState
 
 		if (_song.notes[sec] != null)
 		{
-			trace('naw im not null');
 			curSection = sec;
 
 			updateGrid();

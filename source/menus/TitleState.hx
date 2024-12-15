@@ -54,11 +54,6 @@ class TitleState extends MusicBeatState
 		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
 			sys.FileSystem.createDirectory(Sys.getCwd() + "/assets/replays");
 		#end
-
-		@:privateAccess
-		{
-			trace("Loaded " + openfl.Assets.getLibrary("default").assetsLoaded + " assets (DEFAULT)");
-		}
 		
 		PlayerSettings.init();
 
@@ -107,6 +102,13 @@ class TitleState extends MusicBeatState
 			startIntro();
 		});
 		#end
+
+		@:privateAccess
+		{
+			trace("Loaded " + openfl.Assets.getLibrary("default").assetsLoaded + " asset(s) (DEFAULT)");
+			trace("Loaded " + openfl.Assets.getLibrary("shared").assetsLoaded + " asset(s) (SHARED)");
+			trace("Loaded " + openfl.Assets.getLibrary("songs").assetsLoaded + " asset(s) (SONGS)");
+		}
 	}
 
 	var logoBl:FlxSprite;
@@ -384,12 +386,12 @@ class TitleState extends MusicBeatState
 			// credTextShit.screenCenter();
 			case 5:
 				if (Main.watermarks)
-					createCoolText(['Kade Engine', 'by']);
+					createCoolText(['Multimedia Engine', 'by']);
 				else
 					createCoolText(['In Partnership', 'with']);
 			case 7:
 				if (Main.watermarks)
-					addMoreText('KadeDeveloper');
+					addMoreText('Man Team');
 				else
 				{
 					addMoreText('Newgrounds');

@@ -2,6 +2,10 @@
 ## v0.1 - (12/15/2024)
 running on KadeEngine 1.4.2
 ### Changelog
+- ✨feature: Editor Selector
+- 🔵 other: Optimize Controls.hx for some reason
+- 🐞 fix: Magenta BG Y scrollfactor
+- ✨feature: VersionText OBJ
 - 🔵 other: Added code folders
 - 🔵 other: Removed `APIStuff.hx`
 - 🔵 other: Removed Useless files
