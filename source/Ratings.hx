@@ -12,19 +12,31 @@ class Ratings
 
         // I HATE THIS IF CONDITION
         // IF LEMON SEES THIS I'M SORRY :(
+        // DONT WORRY KADE I GOT U
 
-        if (noteDiff > 135 * customTimeScale) // way early
-            return "shit";
-        else if (noteDiff > 90 * customTimeScale) // early
-            return "bad";
-        else if (noteDiff > 45 * customTimeScale) // your kinda there
+		SHIT_NOTE = (noteDiff < -135 * customTimeScale || noteDiff > 135 * customTimeScale);
+		BAD_NOTE = (noteDiff < -90 * customTimeScale);
+		GOOD_NOTE = (noteDiff > 45 * customTimeScale || noteDiff < -45 * customTimeScale);
+		SICK_NOTE = (!GOOD_NOTE && !BAD_NOTE && !SHIT_NOTE);
+        
+        if (GOOD_NOTE)
             return "good";
-        else if (noteDiff < -45 * customTimeScale) // little late
-            return "good";
-        else if (noteDiff < -90 * customTimeScale) // late
+
+        if (BAD_NOTE)
             return "bad";
-        else if (noteDiff < -135 * customTimeScale) // late as fuck
+        
+        if (SHIT_NOTE)
             return "shit";
-        return "sick";
+
+        if (SICK_NOTE)
+            return "sick";
+
+        trace('Somehow didnt meet any of the conditions');
+        return 'sick';
     }
+
+	private static var SICK_NOTE:Bool = false;
+	private static var GOOD_NOTE:Bool = false;
+	private static var BAD_NOTE:Bool = false;
+	private static var SHIT_NOTE:Bool = false;
 }

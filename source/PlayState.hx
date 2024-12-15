@@ -354,7 +354,7 @@ class PlayState extends MusicBeatState
 	function makeLuaSprite(spritePath:String,toBeCalled:String, drawBehind:Bool)
 	{
 		#if sys
-		var data:BitmapData = BitmapData.fromFile(Sys.getCwd() + "assets/data/" + PlayState.SONG.song.toLowerCase() + '/' + spritePath + ".png");
+		var data:BitmapData = BitmapData.fromFile(Sys.getCwd() + "assets/data/songs/" + PlayState.SONG.song.toLowerCase() + '/' + spritePath + ".png");
 
 		var sprite:FlxSprite = new FlxSprite(0,0);
 		var imgWidth:Float = FlxG.width / data.width;
@@ -490,29 +490,15 @@ class PlayState extends MusicBeatState
 		
 		switch (SONG.song.toLowerCase())
 		{
-			case 'tutorial':
-				dialogue = ["Hey you're pretty cute.", 'Use the arrow keys to keep up \nwith me singing.'];
-			case 'bopeebo':
-				dialogue = [
-					'HEY!',
-					"You think you can just sing\nwith my daughter like that?",
-					"If you want to date her...",
-					"You're going to have to go \nthrough ME first!"
-				];
-			case 'fresh':
-				dialogue = ["Not too shabby boy.", ""];
-			case 'dadbattle':
-				dialogue = [
-					"gah you think you're hot stuff?",
-					"If you can beat me here...",
-					"Only then I will even CONSIDER letting you\ndate my daughter!"
-				];
-			case 'senpai':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('senpai/senpaiDialogue'));
-			case 'roses':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
-			case 'thorns':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
+			default:
+				try {
+					dialogue = CoolUtil.coolTextFile(Paths.txt(
+					'songs/${SONG.song.toLowerCase()}/${SONG.song.toLowerCase()}Dialogue'
+					));
+				} catch(e) {
+					trace('${SONG.song.toLowerCase()} doesnt have Dialogue');
+					FlxG.log.add(e);
+				}
 		}
 
 		switch(SONG.song.toLowerCase())
@@ -1708,7 +1694,7 @@ class PlayState extends MusicBeatState
 
 		// Per song offset check
 		#if desktop
-			var songPath = 'assets/data/' + PlayState.SONG.song.toLowerCase() + '/';
+			var songPath = 'assets/data/songs/' + PlayState.SONG.song.toLowerCase() + '/';
 			for(file in sys.FileSystem.readDirectory(songPath))
 			{
 				var path = haxe.io.Path.join([songPath, file]);
