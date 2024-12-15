@@ -499,6 +499,9 @@ class PlayState extends MusicBeatState
 					trace('${SONG.song.toLowerCase()} doesnt have Dialogue');
 					FlxG.log.add(e);
 				}
+				
+				if (dialogue != [])
+					trace('${SONG.song.toLowerCase()} has Dialogue');
 		}
 
 		switch(SONG.song.toLowerCase())
