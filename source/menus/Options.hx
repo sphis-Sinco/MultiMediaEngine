@@ -1,4 +1,4 @@
-package;
+package menus;
 
 import flixel.util.FlxColor;
 import Controls.KeyboardScheme;

@@ -1,7 +1,7 @@
-package;
+package menus;
 
 import openfl.Lib;
-import Options;
+import menus.Options;
 import Controls.Control;
 import flash.text.TextField;
 import flixel.FlxG;

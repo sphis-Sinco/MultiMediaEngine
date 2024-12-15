@@ -1,4 +1,4 @@
-package;
+package menus;
 
 import Controls.KeyboardScheme;
 import flixel.FlxG;
@@ -36,9 +36,8 @@ class MainMenuState extends MusicBeatState
 	var newGaming2:FlxText;
 	var newInput:Bool = true;
 
-	public static var nightly:String = "";
-
-	public static var kadeEngineVer:String = "1.4.2" + nightly;
+	public static var multiMediaVer:String = "0.1.0";
+	public static var kadeEngineVer:String = "1.4.2";
 	public static var gameVer:String = "0.2.7.1";
 
 	var magenta:FlxSprite;

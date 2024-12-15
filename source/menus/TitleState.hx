@@ -1,4 +1,4 @@
-package;
+package menus;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -291,15 +291,15 @@ class TitleState extends MusicBeatState
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
 
-				// Get current version of Kade Engine
+				// Get current version of the Engine/Mod
 
-				var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/master/version.downloadMe");
+				var http = new haxe.Http("https://raw.githubusercontent.com/sphis-Sinco/MultiMediaEngine/refs/heads/main/version.downloadMe");
 
 				http.onData = function (data:String) {
 				  
-				  	if (!MainMenuState.kadeEngineVer.contains(data.trim()) && !OutdatedSubState.leftState && MainMenuState.nightly == "")
+				  	if (!MainMenuState.multiMediaVer.contains(data.trim()) && !OutdatedSubState.leftState)
 					{
-						trace('outdated lmao! ' + data.trim() + ' != ' + MainMenuState.kadeEngineVer);
+						trace('outdated lmao! ' + data.trim() + ' != ' + MainMenuState.multiMediaVer);
 						OutdatedSubState.needVer = data;
 						FlxG.switchState(new OutdatedSubState());
 					}
