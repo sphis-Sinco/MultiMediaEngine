@@ -20,12 +20,18 @@ class Boyfriend extends Character
 	{
 		if (!debugMode)
 		{
-			if (animation.curAnim.name.startsWith('sing'))
+			try
 			{
+				if (!animation.curAnim.name.startsWith('sing')) {
+					holdTimer = 0;
+					return;
+				}
+			}
+			catch (e)
+			{
+				trace(e);
 				holdTimer += elapsed;
 			}
-			else
-				holdTimer = 0;
 
 			if (animation.curAnim.name.endsWith('miss') && animation.curAnim.finished && !debugMode)
 			{

@@ -526,15 +526,17 @@ class Character extends FlxSprite
 	{
 		if (!curCharacter.startsWith('bf'))
 		{
-			if (animation.curAnim.name.startsWith('sing'))
-			{
+			var dadVar:Float;
+
+			if (curCharacter == 'dad') dadVar = 6.1; else dadVar = 4.0;
+
+			try {
+				if (animation.curAnim.name.startsWith('sing'))
 				holdTimer += elapsed;
+			} catch(e) {
+				trace(e);
 			}
 
-			var dadVar:Float = 4;
-
-			if (curCharacter == 'dad')
-				dadVar = 6.1;
 			if (holdTimer >= Conductor.stepCrochet * dadVar * 0.001)
 			{
 				dance();
@@ -565,15 +567,13 @@ class Character extends FlxSprite
 			{
 				// spooky is here cause they dont have hair anims anyway LOL
 				case 'gf', 'gf-car', 'gf-christmas', 'gf-pixel', 'spooky':
-					if (!animation.curAnim.name.startsWith('hair'))
-					{
-						danced = !danced;
-
-						if (danced)
-							playAnim('danceRight');
-						else
-							playAnim('danceLeft');
-					}
+					try { if (animation.curAnim.name.startsWith('hair')) return; } catch(e) {trace(e);}
+					
+					danced = !danced;
+					if (danced)
+						playAnim('danceRight');
+					else
+						playAnim('danceLeft');
 					
 				default:
 					playAnim('idle');
